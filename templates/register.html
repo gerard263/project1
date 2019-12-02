@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}
+Bookwurm - register
+{% endblock %}
+{% block main %}
+  <div class="jumbotron">
+    <div class="container">
+      <center>
+        <h1 class="display-3">Bookwurm - register</h1> 
+        <h1> the book review site</h1>
+        <p>Find all book reviews for a wide range of books.</p>
+      </center>
+    </div>
+  </div>
+  <div class="container">
+    <form action="{{ url_for('register') }}" method="POST">
+      <div class="form-group">
+        <input class="form-control" name="username" placeholder="username">
+      </div>
+      <div class="form-group">
+        <input class="form-control" type="password" name="password" placeholder="password">
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary">Register</button>
+      </div>
+      
+    </form>
+  </div>
+{% endblock %}

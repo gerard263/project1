@@ -1,0 +1,63 @@
+#beepico {
+    height: 40px;
+    width: 40px;
+}
+/*body {
+    background-image: url("img/nessiegrey.jpg");
+}*/
+#nessiegrey {
+
+    height: 70%;/* 1537 background-size: cover;*/
+    width: 70%;/* 2049   */
+}
+
+#idontcare {
+
+    height: 40%;/* 1537 background-size: cover;*/
+    width: 40%;/* 2049   */
+}
+
+#howitworks h1{
+    font-size: small;
+    color: green;
+}
+#rates {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+#rates td, #rates th{
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#rates th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+
+#rates tr:nth-child(even){background-color: #ccc;}
+#rates tr:nth-child(odd){background-color: #fff;}
+
+#rates tr:hover {background-color: #aaa;}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+.avatar {
+  width: 40%;
+  border-radius: 30%;
+}
+
+.question {
+  font: italic bold 17px arial, sans-serif;
+}
+
+.answer {
+  font: 17px arial, sans-serif;
+}

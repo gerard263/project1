@@ -1,0 +1,83 @@
+$color: red;
+
+ul {
+    font-size: 14px;
+    color: $color
+}
+
+ol {
+    font-size: 18px;
+    color: $color
+}
+
+#beepico {
+    height: 30px;
+    width: 30px;
+}
+
+#nessiegrey {
+    height: 70%;/* 1537 background-size: cover;*/
+    width: 70%;/* 2049   */
+}
+
+#idontcare {
+    height: 40%;/* 1537 background-size: cover;*/
+    width: 40%;/* 2049   */
+}
+
+.questions {
+    font-style: italic;
+}
+
+#rates {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  #rates td, #rates th{
+      border: 1px solid #ddd;
+      padding: 8px;
+  }
+  
+  #rates th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  #rates tr:nth-child(even){background-color: #ccc;}
+  #rates tr:nth-child(odd){background-color: #fff;}
+  
+  #rates tr:hover {background-color: #aaa;}
+
+@media (min-width: 799px) {
+    
+    footer {
+        font-size: 35px;
+    }
+}
+@media (max-width: 699px) {
+    
+    footer {
+        font-size: 15px;
+    }
+}
+
+%message { 
+    font-family: sant-serif; border: 1px; font-size: 17px;
+}
+
+.success {
+    @extend %message;
+    background-color: green;    
+    p {
+        color: red;
+    }
+}
+
+.failure {
+    @extend %message;
+    background-color: red;
+}

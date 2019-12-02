@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}
+Bookwurm - error
+{% endblock %}
+{% block main %}
+<div class="jumbotron">
+    <div class="container">
+      <center>
+      <h1 class="display-3">Error</h1> 
+      <h3> there was an error with the following message:</h3>
+      <h2><p><div class="errormessage">{{message}}</div></p></h2>
+    </div></center>
+  </div>
+{% endblock %}
