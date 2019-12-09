@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% block title %}
+    bookworm - {{ book.title }}
+{% endblock %}
+
+{% block main %}
+
+    <div class="jumbotron">
+        <div class="container">
+            <center>
+                <h1 class="display-3">bookworm</h1> 
+                <h1> the book review site</h1>
+                <p>Find all book reviews for a wide range of books.</p>
+            </center>
+        </div>
+    </div>
+    <div class="container">
+        <h3>
+            <ul>
+                <li> Title: {{ book.title }}</li>
+                <li> Author: {{ book.author }}</li>
+                <li> Year: {{ book.year }}</li>
+                <li> ISBN number: {{ book.isbn }}</li>
+            </ul>
+        </h3>
+    </div>
+
+    <div class="container">
+        <h4>
+            {% set ns = namespace(found=false) %}            
+            {% if reviews %}
+                {% for review in reviews %}
+                    <HR>
+                    <ul>
+                        <li>Rating: {{ review.rating }}</li>
+                        <li>Book review: <BR>{{ review.reviewtext }}</li>
+                        <li>username: {{ review.username }}</li>
+                        {% if review.username == username %}
+                            {% set ns.found = true %}                            
+                        {% endif %}
+                    </ul>
+                {% endfor %}
+            {% else %}
+                <HR>
+                No bookworm reviews yet for this book
+            {% endif %}
+        </h4>
+    </div>
+    {% if goodreads %}
+    <div class="container"><HR><BR>
+        <h2>Goodreads</h2>
+        
+            <h3>
+                Number of reviews: {{ goodreads["reviews_count"] }}<BR>
+                Average rating: {{ goodreads["average_rating"] }}<BR>
+                    
+            </h3>
+    </div>
+    {% endif %}
+
+    {% if username and not ns.found %}    
+        <BR>
+        <div class="container">
+        <HR>
+            <h2> Write a book review for this book</h2>
+            <form action="{{ url_for('submitreview') }}" method="POST">
+                <div class="form-group">
+                    <label for="ratingControlSelect">Rating</label>
+                    <select class="form-control" id="ratingControlSelect" name="rating">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="theTextArea">Write a book review</label>
+                    <textarea class="form-control" id="theTextArea" rows="10" name="reviewtext"></textarea>
+                </div>         
+                <input type="hidden" value="{{ book.id }}"" name="book_id">
+                <div class="form-group">
+                    <button class="btn btn-primary">Submit</button>
+                </div>   
+            </form>
+        </div>        
+    {% endif %}
+
+        <BR>
+        <div class="container">
+        <HR>
+            <h2>Search for books</h2>
+            <form action="{{ url_for('books') }}" method="POST">
+                <div class="form-group">
+                    <input class="form-control" name="search" placeholder="search">
+                </div>        
+                <div class="form-group">
+                    <button class="btn btn-primary">Search</button>
+                </div>
+            </form>
+        </div>
+{% endblock %}

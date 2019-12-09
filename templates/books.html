@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 {% block title %}
-Bookwurm - books
+bookworm - books
 {% endblock %}
 {% block main %}
   <div class="jumbotron">
     <div class="container">
       <center>
-      <h1 class="display-3">Bookwurm - books</h1> 
+      <h1 class="display-3">bookworm - books</h1> 
       <h1> the book review site</h1>
       <p>Find all book reviews for a wide range of books.</p>
     </div></center>
@@ -22,4 +22,29 @@ Bookwurm - books
         </div>        
       </form>
     </div>
+    {% if q %}
+        <div class="container">
+            {{ books|length }} search results for {{ q }}            
+        </div>
+    {% endif %}
+    {% if books %}
+      <div class="container">
+          <table class="table table-bordered table-condensed table-striped table-hover" span="100%">
+              <tr>
+                <th>title</th>
+                <th>author</th>
+                <th>year</th>
+                <th>isbn</th>
+              </tr>
+              {% for book in books %}                
+                <tr>
+                  <td><a href="{{ url_for( 'books_with_id', book_id=book.id)}}"  >{{ book.title }}</a></td>
+                  <td>{{ book.author }}</td>
+                  <td>{{ book.year }}</td>
+                  <td>{{ book.isbn }}</td>
+                </tr>                
+              {% endfor %}  
+          </table>    
+      </div>
+    {% endif %}
 {% endblock %}

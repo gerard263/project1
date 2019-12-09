@@ -1,18 +1,27 @@
 {% extends "base.html" %}
 {% block title %}
-bookworm - registered
+bookworm - submitted
 {% endblock %}
 {% block main %}
   <div class="jumbotron">
     <div class="container">
       <center>
-        <h1 class="display-3">bookworm - registered</h1> 
+        <h1 class="display-3">bookworm - submitted</h1> 
         <h1> the book review site</h1>
         <p>Find all book reviews for a wide range of books.</p>
       </center>
     </div>
   </div>
   <div class="container">
-      Username {{ registeredusername }} successfully registered!
+      <h2>review successfully submitted: </h2>
+      <BR>
+  </div>
+  <div class="container">
+    <h3>
+      <ul>
+        <li>Rating: {{ rating }}</li>
+        <li>Book review: {{ reviewtext }}</li>
+      </ul>
+    </h3>
   </div>
 {% endblock %}
